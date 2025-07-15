@@ -14,10 +14,10 @@ export const MovieProvider=({children}) => {
         localStorage.setItem('favorites',JSON.stringify(favorites))
     },[favorites])
 
-    const addToFavorite=(movie)=>{
+    const addToFavorites=(movie)=>{
         setFavorites(prev=>[...prev,movie])
     }
-    const removeFromFavourite=(movieId)=>{
+    const removeFromFavorites=(movieId)=>{
         setFavorites(prev=>prev.filter(movie=>movie.id !== movie))
     }
     const isFavorite=(movieId)=>{
@@ -26,8 +26,8 @@ export const MovieProvider=({children}) => {
     const value={
         favorites,
         setFavorites,
-        removeFromFavourite,
-        addToFavorite,
+        removeFromFavorites,
+        addToFavorites,
         isFavorite
     }
     return <MovieContext.Provider value={value}>
